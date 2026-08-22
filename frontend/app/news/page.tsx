@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { getNews } from "@/lib/api";
 import type { NewsArticle } from "@/lib/types";
@@ -11,10 +11,10 @@ const CATEGORIES = ["ALL", "MARKET", "CORPORATE", "ECONOMY", "GEOPOLITICS"];
 const SENTIMENT_COLORS: Record<string, string> = {
   POSITIVE: "var(--green)",
   NEGATIVE: "var(--red)",
-  NEUTRAL:  "var(--text-muted)",
+  NEUTRAL: "var(--text-muted)",
 };
 
-export default function NewsPage() {
+function NewsContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -44,7 +44,7 @@ export default function NewsPage() {
           fontFamily: "var(--text-mono)", fontSize: "0.65rem",
           letterSpacing: "0.2em", color: "var(--purple)", margin: 0,
         }}>
-          NEXUS TERMINAL // NEWS ENGINE
+          ALPHA TERMINAL // NEWS ENGINE
         </h1>
       </div>
 
@@ -161,5 +161,13 @@ export default function NewsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function NewsPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 20, color: "#94a3b8" }}>Loading News...</div>}>
+      <NewsContent />
+    </Suspense>
   );
 }

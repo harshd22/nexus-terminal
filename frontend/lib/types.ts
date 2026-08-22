@@ -17,6 +17,7 @@ export interface IndexQuote {
   name: string;
   symbol: string;
   value: number | null;
+  last_price?: number | null;
   change: number | null;
   change_pct: number | null;
   high: number | null;

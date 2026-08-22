@@ -11,7 +11,7 @@ function fmt(v: number | null, decimals = 2) {
 
 function IndexCard({ quote }: { quote: IndexQuote }) {
   const positive = (quote.change ?? 0) >= 0;
-  const val = quote.value ?? quote.last_price;
+  const val = quote.value ?? quote.last_price ?? 0;
 
   return (
     <div
