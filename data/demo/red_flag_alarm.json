@@ -1,0 +1,17 @@
+{
+  "scenario": "red_flag_alarm",
+  "title": "RED FLAG ALARM — HYPOTHETICAL EXAMPLE",
+  "description": "Demo showing all 7 red flags triggered for educational purposes",
+  "symbol": "DEMO_RFCO",
+  "company": "Red Flag Demo Co (Hypothetical)",
+  "flags": [
+    { "rule_id": 1, "rule_name": "PROMOTER PLEDGE > 20%", "status": "FAIL", "value": 42.5, "threshold": 20.0, "formula": "promoter_pledge_pct > 20%", "explanation": "Promoter has pledged 42.5% of shares — above 20% threshold. High pledging signals financial stress and forced-selling risk.", "source": "DEMO DATA", "data_date": "2026-06-30" },
+    { "rule_id": 2, "rule_name": "CASH FLOW vs PROFIT MISMATCH", "status": "FAIL", "value": -850.0, "threshold": 0, "formula": "operating_cash_flow < 0 AND net_profit > 0", "explanation": "Reported profit ₹320Cr but operating cash flow is ₹-850Cr. Negative OCF with positive profit suggests aggressive accrual accounting.", "source": "DEMO DATA", "data_date": "2026-03-31" },
+    { "rule_id": 3, "rule_name": "RECEIVABLES GROWING > 1.5× REVENUE GROWTH", "status": "FAIL", "value": 45.0, "threshold": 15.0, "formula": "receivables_growth > 1.5 × revenue_growth", "explanation": "Receivables grew 45% while revenue grew only 10% — receivables growing 4.5× faster than revenue. Classic sign of channel stuffing or collection issues.", "source": "DEMO DATA", "data_date": "2026-03-31" },
+    { "rule_id": 4, "rule_name": "DEBT/EQUITY > 2", "status": "FAIL", "value": 4.2, "threshold": 2.0, "formula": "debt / equity > 2", "explanation": "Debt/Equity ratio 4.20 — above 2× threshold. High leverage risk.", "source": "DEMO DATA", "data_date": "2026-03-31" },
+    { "rule_id": 5, "rule_name": "INTEREST COVERAGE < 2", "status": "FAIL", "value": 0.8, "threshold": 2.0, "formula": "EBIT / interest_expense < 2", "explanation": "Interest coverage 0.80× — company cannot cover interest from operating profit. Extreme distress.", "source": "DEMO DATA", "data_date": "2026-03-31" },
+    { "rule_id": 6, "rule_name": "PROMOTER HOLDING FALLING ≥ 3 QUARTERS", "status": "FAIL", "value": 38.2, "threshold": null, "formula": "promoter_pct[Q-0] < promoter_pct[Q-1] < promoter_pct[Q-2]", "explanation": "Promoter holding fallen consecutively for 3 quarters. Current: 38.2% vs 3 quarters ago: 48.5% (Δ -10.3%). Sustained promoter selling is a significant red flag.", "source": "DEMO DATA", "data_date": "2026-06-30" },
+    { "rule_id": 7, "rule_name": "AUDITOR CHANGE", "status": "FAIL", "value": null, "threshold": null, "formula": null, "explanation": "Auditor changed in FY26 annual report — new auditor appointed mid-year without clear explanation. Prior auditor served 12 years.", "source": "DEMO DATA", "data_date": "2026-03-31" }
+  ],
+  "disclaimer": "ALL DATA IS HYPOTHETICAL AND FOR EDUCATIONAL DEMONSTRATION ONLY. Not real financial data."
+}

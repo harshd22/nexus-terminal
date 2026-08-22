@@ -1,0 +1,230 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+:root {
+  /* Minimalist Pitch-Black Emerald OLED Palette */
+  --bg-base: #000000;
+  --bg-surface: #090d16;
+  --bg-panel: #0d121f;
+  --bg-card: #111827;
+  --bg-hover: rgba(0, 230, 118, 0.08);
+
+  --border-subtle: #1e293b;
+  --border-glow: rgba(0, 230, 118, 0.35);
+  --border-cyan: rgba(0, 230, 118, 0.35);
+  --border-green: rgba(0, 230, 118, 0.35);
+  --border-red: rgba(255, 42, 95, 0.35);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --emerald: #00e676;
+  --emerald-glow: rgba(0, 230, 118, 0.25);
+  --cyan: #00e676;
+  --cyan-glow: rgba(0, 230, 118, 0.25);
+  --green: #00e676;
+  --green-glow: rgba(0, 230, 118, 0.25);
+  --red: #ff2a5f;
+  --red-glow: rgba(255, 42, 95, 0.25);
+  --yellow: #f59e0b;
+  --blue: #3b82f6;
+
+  /* Theme Primary Accent: Emerald Green */
+  --purple: #00e676;
+  --purple-glow: rgba(0, 230, 118, 0.25);
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --header-grad: linear-gradient(180deg, #090d16 0%, #04060a 100%);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+/* Glassmorphism & Cyber Panels */
+.glass-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: var(--border-green);
+  transform: translateY(-1px);
+}
+
+.terminal-heading {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.terminal-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.value-mono {
+  font-family: var(--font-mono);
+}
+
+.terminal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.terminal-table th {
+  background: #090d16;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.terminal-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition: background 0.15s ease;
+}
+
+.terminal-table tr:hover td {
+  background: rgba(0, 230, 118, 0.04);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #090d16;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Badges & Status Chips */
+.badge-pass {
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--green);
+  border: 1px solid var(--border-green);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.badge-fail {
+  background: rgba(255, 42, 95, 0.12);
+  color: var(--red);
+  border: 1px solid var(--border-red);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.badge-na {
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* Live Pulse Animation */
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+  }
+
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(0, 230, 118, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+  }
+}
+
+/* Ticker Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

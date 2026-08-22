@@ -1,0 +1,54 @@
+{
+  "scenario": "full_analysis",
+  "title": "FULL ANALYSIS REPLAY — RELIANCE INDUSTRIES",
+  "description": "Complete Nexus Terminal analysis walkthrough for RELIANCE",
+  "symbol": "RELIANCE",
+  "company": "Reliance Industries Limited",
+  "steps": [
+    { "type": "log", "message": "> INITIALIZING NEXUS ENGINE", "delay_ms": 200 },
+    { "type": "log", "message": "> RESOLVING NSE/BSE SYMBOL: RELIANCE", "delay_ms": 400 },
+    { "type": "log", "message": "> LOADING PRICE HISTORY (5Y)", "delay_ms": 600 },
+    { "type": "log", "message": "> LOADING FUNDAMENTALS FROM SCREENER.IN", "delay_ms": 800 },
+    { "type": "log", "message": "> LOADING SHAREHOLDING (8 QUARTERS)", "delay_ms": 1000 },
+    { "type": "log", "message": "> LOADING NEWS (LAST 30 DAYS)", "delay_ms": 1200 },
+    { "type": "log", "message": "> CALCULATING TECHNICALS: 20/50/100/200 DMA", "delay_ms": 1400 },
+    { "type": "log", "message": "> RUNNING RED FLAG ENGINE (7 RULES)", "delay_ms": 1600 },
+    { "type": "log", "message": "> BUILDING SCORECARD", "delay_ms": 1800 },
+    { "type": "log", "message": "> BUILDING EVIDENCE PACK", "delay_ms": 2000 },
+    { "type": "log", "message": "> GENERATING SWOT ANALYSIS", "delay_ms": 2200 },
+    { "type": "log", "message": "> READY", "delay_ms": 2400 },
+    {
+      "type": "red_flags",
+      "delay_ms": 2600,
+      "data": {
+        "symbol": "RELIANCE",
+        "flags": [
+          { "rule_id": 1, "rule_name": "PROMOTER PLEDGE > 20%", "status": "PASS", "value": 0.0, "threshold": 20.0, "formula": "promoter_pledge_pct > 20%", "explanation": "Promoter pledge at 0.0% — within safe threshold.", "source": "Screener.in [DEMO]", "data_date": "2026-06-30" },
+          { "rule_id": 2, "rule_name": "CASH FLOW vs PROFIT MISMATCH", "status": "PASS", "value": 82000.0, "threshold": 0, "formula": "operating_cash_flow < 0 AND net_profit > 0", "explanation": "Cash flow ₹82,000Cr broadly consistent with profit ₹73,000Cr.", "source": "Screener.in [DEMO]", "data_date": "2026-03-31" },
+          { "rule_id": 3, "rule_name": "RECEIVABLES GROWING > 1.5× REVENUE GROWTH", "status": "NA", "value": null, "threshold": null, "formula": "receivables_growth > 1.5 × revenue_growth", "explanation": "DATA UNAVAILABLE — Receivables data not ingested yet", "source": null, "data_date": null },
+          { "rule_id": 4, "rule_name": "DEBT/EQUITY > 2", "status": "WARN", "value": 0.45, "threshold": 2.0, "formula": "debt / equity > 2", "explanation": "Debt/Equity ratio 0.45 — within healthy range but elevated vs. peers.", "source": "Screener.in [DEMO]", "data_date": "2026-03-31" },
+          { "rule_id": 5, "rule_name": "INTEREST COVERAGE < 2", "status": "PASS", "value": 6.2, "threshold": 2.0, "formula": "EBIT / interest_expense < 2", "explanation": "Interest coverage 6.2× — adequate.", "source": "Screener.in [DEMO]", "data_date": "2026-03-31" },
+          { "rule_id": 6, "rule_name": "PROMOTER HOLDING FALLING ≥ 3 QUARTERS", "status": "PASS", "value": 50.3, "threshold": null, "formula": "promoter_pct[Q-0] < promoter_pct[Q-1] < promoter_pct[Q-2]", "explanation": "Promoter holding stable or increasing. Current: 50.3%.", "source": "Screener.in [DEMO]", "data_date": "2026-06-30" },
+          { "rule_id": 7, "rule_name": "AUDITOR CHANGE", "status": "NA", "value": null, "threshold": null, "formula": null, "explanation": "DATA UNAVAILABLE — Auditor change detection requires annual report parsing", "source": null, "data_date": null }
+        ]
+      }
+    },
+    {
+      "type": "score",
+      "delay_ms": 3000,
+      "data": {
+        "total_score": 6.8,
+        "base_score": 7.3,
+        "penalty": -0.5,
+        "components": {
+          "valuation":        { "score": 5.0, "weight": 0.25, "contribution": 1.25 },
+          "growth":           { "score": 7.5, "weight": 0.25, "contribution": 1.875 },
+          "financial_health": { "score": 7.0, "weight": 0.20, "contribution": 1.40 },
+          "momentum":         { "score": 8.0, "weight": 0.15, "contribution": 1.20 },
+          "sector_tailwind":  { "score": 7.0, "weight": 0.15, "contribution": 1.05 }
+        }
+      }
+    }
+  ],
+  "disclaimer": "DEMO DATA — NOT REAL FINANCIAL DATA. Research and education only."
+}
