@@ -1,4 +1,5 @@
 services:
+  # 1. FastAPI Python Backend Service
   - type: web
     name: nexus-terminal-backend
     env: python
@@ -10,3 +11,16 @@ services:
         value: 10000
       - key: DATABASE_URL
         value: sqlite+aiosqlite:///./nexus.db
+
+  # 2. Next.js Frontend Service
+  - type: web
+    name: nexus-terminal-frontend
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NEXT_PUBLIC_API_URL
+        value: https://nexus-terminal-backend.onrender.com
