@@ -4,9 +4,9 @@ import { SideNav } from "@/components/SideNav";
 import { TerminalHeader } from "@/components/TerminalHeader";
 
 export const metadata: Metadata = {
-  title: "NEXUS TERMINAL — Indian Equity Research",
+  title: "ALPHA TERMINAL — All-in-One Financial & Market Intelligence",
   description:
-    "Institutional-grade Indian equity research terminal. Real-time NSE/BSE data, deep-dive analysis, portfolio analytics, red flags engine, SWOT, Bull vs Bear debate. For research and education only.",
+    "Institutional-grade financial research terminal. Real-time NSE/BSE data, key ratios, consensus targets, IPO intelligence, macro economics, and portfolio analytics.",
   keywords: "NSE, BSE, Indian stocks, equity research, portfolio analysis, stock screener",
 };
 

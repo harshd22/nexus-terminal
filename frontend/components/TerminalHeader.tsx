@@ -136,7 +136,7 @@ export function TerminalHeader() {
               color: "#ffffff",
             }}
           >
-            NEXUS TERMINAL
+            ALPHA TERMINAL
           </span>
         </div>
 

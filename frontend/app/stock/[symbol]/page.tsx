@@ -146,7 +146,7 @@ export default function StockPage() {
                   fontWeight: 800,
                 }}
               >
-                NEXUS EQUITY RESEARCH TERMINAL
+                ALPHA FINANCIAL RESEARCH TERMINAL
               </div>
             </div>
           </div>
